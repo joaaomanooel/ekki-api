@@ -1,0 +1,6 @@
+# DEV ENV
+DEV_DB_USER='${DB_USER}'
+DEV_BD_PASSWORD='${DB_PASSWORD}'
+DEV_URL='http://localhost:5000'
+
+# PROD ENV
