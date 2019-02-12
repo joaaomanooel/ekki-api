@@ -4,15 +4,20 @@
     "standard"
   ],
   "parserOptions": {
-    "ecmaVersion": 6,
     "sourceType": "module"
   },
   "rules": {
+    "no-underscore-dangle": 0,
+    "func-names": 0,
+    "function-paren-newline": 1,
+    "comma-dangle": 1,
     "semi": 2,
     "import/no-extraneous-dependencies": [
-      "error", {
+      "error",
+      {
         "devDependencies": true
-      }]
+      }
+    ]
   },
   "globals": {
     "describe": true,
