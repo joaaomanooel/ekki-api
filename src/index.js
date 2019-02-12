@@ -12,12 +12,9 @@ app.use(morgan('dev'));
 app.use(helmet());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.set('port', process.env.PORT || 5000);
-app.config = require('./config/config');
-app.datasource = require('./config/datasource')(app);
-require('./app/routes/index')(app);
+require('./app/routes')(app);
 
-app.use('/', (req, res) => res.send({ message: 'Bem vindo a Books API!' }));
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use('/', (req, res) => res.send({ message: 'Bem vindo a Ekki API!' }));
 
 module.exports = app;
