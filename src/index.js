@@ -15,6 +15,6 @@ app.use(bodyParser.json());
 require('./app/routes')(app);
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-app.use('/', (req, res) => res.send({ message: 'Bem vindo a Ekki API!' }));
+app.get('/', (req, res) => res.send({ message: 'Bem vindo a Ekki API!' }));
 
 module.exports = app;
