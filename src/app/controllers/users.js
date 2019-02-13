@@ -44,7 +44,7 @@ const update = async (req, res) => {
   try {
     if (req.userId !== id) throw 'User without permission. Token not compatible with user';
     const user = await User.findOneAndUpdate({ _id: id }, req.body);
-    return res.status(200).json({ user });
+    return res.status(200).send(user);
   } catch (err) {
     console.error(err);
     return res.status(400).send({ error: 'Error to update the user.' });
@@ -56,7 +56,7 @@ const remove = async (req, res) => {
   try {
     if (req.userId !== id) throw 'User without permission. Token not compatible with user';
     await User.remove({ _id: id });
-    return res.status(201).json({ message: 'User removed with success.' });
+    return res.status(201).send({ message: 'User removed with success.' });
   } catch (err) {
     console.error(err);
     return res.status(400).send({ error: 'Error to remove the user.' });
