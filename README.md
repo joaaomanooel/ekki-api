@@ -20,6 +20,3 @@ See also the list of [contributors](https://github.com/joaaomanooel/ekki-api/con
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-ekki-api
-Ovh6StrkUWGdsuYF
