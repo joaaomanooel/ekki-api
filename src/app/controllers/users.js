@@ -11,7 +11,10 @@ function operationError(operation) {
 
 const getAll = async (req, res) => {
   try {
-    const users = await User.find({});
+    const users = await User
+      .find({})
+      .populate('account', 'bank agency account balence -_id');
+
     return res.status(200).send({ users });
   } catch (err) {
     console.error(err);
@@ -22,7 +25,10 @@ const getAll = async (req, res) => {
 const getById = async (req, res) => {
   const { id } = req.params;
   try {
-    const user = await User.findOne({ _id: id });
+    const user = await User
+      .findOne({ _id: id })
+      .populate('account', 'bank agency account balence -_id');
+
     return res.status(200).json({ user });
   } catch (err) {
     console.error(err);
@@ -49,8 +55,8 @@ const update = async (req, res) => {
   const { id } = req.params;
   try {
     if (req.userId !== id) throw new Error(PermissionErr);
-    const user = await User.findOneAndUpdate({ _id: id }, req.body);
-    return res.status(200).send(user);
+    await User.findOneAndUpdate({ _id: id }, req.body);
+    return res.status(200).send({ message: 'User updated with success.' });
   } catch (err) {
     console.error(err);
     return res.status(400).send({ error: operationError('update') });
