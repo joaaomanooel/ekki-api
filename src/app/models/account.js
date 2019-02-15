@@ -24,6 +24,11 @@ const AccountSchema = new Schema({
     type: Schema.Types.Decimal128,
     default: 0.0,
   },
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    required: true,
+  },
 });
 
 module.exports = mongoose.model('Account', AccountSchema);
