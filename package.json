@@ -43,6 +43,6 @@
     "nodemailer": "^5.1.1",
     "nodemailer-express-handlebars": "^3.0.0",
     "path": "^0.12.7",
-    "swagger-ui-express": "^4.0.2"
+    "swagger-ui-express": "^4.2.0"
   }
 }
